@@ -110,7 +110,6 @@ modules: [
     audios: true,
     iframes: true,
     native: false,
-    polyfill: true,
     directiveOnly: false,
     
     // Default image must be in the static folder
