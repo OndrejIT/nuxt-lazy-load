@@ -7,6 +7,9 @@ npm i nuxt-lazy-load
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![npm downloads][kofi-src]][kofi-href]
 
+# Nuxt 3
+There is **Nuxt 3** version for this module
+**[nuxt3-lazy-load](https://www.npmjs.com/package/nuxt3-lazy-load)**!
 
 ## 👉 Description
 You don't need to bother with extra attributes on elements (like **data-src**, only if you want to lazy load background-image), just add the **module** in **nuxt.config.js** and that's it 😊
