@@ -7,19 +7,15 @@ npm i nuxt-lazy-load
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![npm downloads][kofi-src]][kofi-href]
 
-# Nuxt 3
-There is **Nuxt 3** version for this module
-**[nuxt3-lazy-load](https://www.npmjs.com/package/nuxt3-lazy-load)**!
 
 ## 👉 Description
-You don't need to bother with extra attributes on elements (like **data-src**, only if you want to lazy load background-image), just add the **module** in **nuxt.config.js** and that's it 😊
+You don't need to bother with extra attributes on elements (like **data-src** and **data-srcset**), just add the **module** in **nuxt.config.js** and that's it
 
-### Buy me a coffee
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F31MWWL)
+⚠️ For Nuxt 2, use **nuxt-lazy-load** < 3.0.0
 
 ## 🚀 Usage
 ```javascript
-// nuxt.config.js
+// nuxt.config.js (nuxt.config.ts)
 modules: [
   'nuxt-lazy-load'
 ]
@@ -29,18 +25,6 @@ modules: [
     // Your options
   }]
 ]
-```
-
-### 📝 Updates
-- **1.2.3** - Audio tag fixes
-- **1.2.2** - Native lazy load (Support: https://caniuse.com/#feat=loading-lazy-attr)
-
-#### background image
-**lazy-background** attribute
-```html
-<div lazy-background="~/assets/images/background-image.jpg">
-  Content
-</div>
 ```
 
 #### directiveOnly
@@ -55,39 +39,6 @@ You don't need to add directive (**v-lazy-load**) on source elements
 </video>
 ```
 
-#### Manual lazy-load ($lazyLoad)
-**$lazyLoad** is injected, so you can use it everywhere, you just need to call it on **parent element** or **pass an element** you want to lazy load. (**example below**)
-
-#### data-manual-lazy
-If you want to load image/video/audio/iframe only on hover or some other event you can use **data-manual-lazy**
-```html
-<!-- 
-  with markup like this (mouseenter is on parent element)
-  you don't need to pass any element to function
--->
-<div class="imageWrapper" @mouseenter="lazyLoadImage">
-  <img src="image.png" alt="" title="" data-manual-lazy>
-  <img src="second-image.png" alt="" title="" data-manual-lazy>
-</div>
-
-<!--
-  but if you have something like this, then you'll need to
-  call another function and to pass elements to it
--->
-<div class="imageWrapper">
-  <button @mouseenter="lazyLoadImage">Hover me to see the image</button>
-  <img src="image.png" alt="" title="" data-manual-lazy>
-</div>
-```
-```javascript
-methods: {
-  lazyLoadImage(e){
-    let media = e.target.parentNode.querySelectorAll('[data-manual-lazy]');
-    [...media].forEach(m => this.$lazyLoad(m))
-  }
-}
-```
-
 #### data-not-lazy
 If you don't want to lazy load single element, just add **data-not-lazy** attribute
 ```html
@@ -96,39 +47,37 @@ If you don't want to lazy load single element, just add **data-not-lazy** attrib
 </audio>
 ```
 
-#### dynamic content
-If your content (**html**) is changing **dynamically** and you use **v-html** you can do it like this:
-```html
-// instead of using v-html="yourHTML" use v-lazy-load="yourHTML"
-<div v-lazy-load="yourHTML"></div>
-```
-
 ## 🔧 Options
 ```javascript
 modules: [
-  ['nuxt-lazy-load', {
-    // These are the default values
-    images: true,
-    videos: true,
-    audios: true,
-    iframes: true,
-    native: false,
-    directiveOnly: false,
-    
-    // Default image must be in the static folder
-    defaultImage: '/images/default-image.jpg',
+  'nuxt-lazy-load'
+],
 
-    // To remove class set value to false
-    loadingClass: 'isLoading',
-    loadedClass: 'isLoaded',
-    appendClass: 'lazyLoad',
-    
-    observerConfig: {
-      // See IntersectionObserver documentation
-    }
-  }]
-]
+lazyLoad: {
+  // These are the default values
+  images: true,
+  videos: true,
+  audios: true,
+  iframes: true,
+  native: false,
+  directiveOnly: false,
+  
+  // Default image must be in the public folder
+  defaultImage: '/images/default-image.jpg',
+
+  // To remove class set value to false
+  loadingClass: 'isLoading',
+  loadedClass: 'isLoaded',
+  appendClass: 'lazyLoad',
+  
+  observerConfig: {
+    // See IntersectionObserver documentation
+  }
+}
 ```
+
+### Buy me a coffee
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F31MWWL)
 
 <!-- Badges -->
 [npm-version-src]: https://badgen.net/npm/v/nuxt-lazy-load/latest
@@ -136,7 +85,6 @@ modules: [
 
 [kofi-src]: https://badgen.net/badge/icon/kofi?icon=kofi&label=support
 [kofi-href]: https://ko-fi.com/darioferderber
-
 
 [npm-downloads-src]: https://badgen.net/npm/dm/nuxt-lazy-load
 [npm-downloads-href]: https://npmjs.com/package/nuxt-lazy-load
