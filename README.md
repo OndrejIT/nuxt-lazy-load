@@ -1,4 +1,4 @@
-# nuxt-lazy-load
+![nuxt-lazy-load](https://drive.google.com/a/broj42.com/uc?id=186beiHH4j6fTdRpTnM_khROLL1a7c5Oc)
 ```bash
 npm i nuxt-lazy-load
 ```
@@ -19,32 +19,6 @@ You don't need to bother with extra attributes on elements (like **data-src** an
 modules: [
   'nuxt-lazy-load'
 ]
-// or
-modules: [
-  ['nuxt-lazy-load', {
-    // Your options
-  }]
-]
-```
-
-#### directiveOnly
-If you don't want to use lazy load on every image/video/audio/iframe, set **directiveOnly** to **true** and use directive like this (with data-src/data-srcset/data-poster)
-```html
-<img data-src="image.png" alt="" title="" v-lazy-load>
-```
-You don't need to add directive (**v-lazy-load**) on source elements
-```html
-<video data-poster="~/assets/images/poster.jpg" v-lazy-load>
-  <source data-src="video.mp4" type="video/mp4"> --> without directive
-</video>
-```
-
-#### data-not-lazy
-If you don't want to lazy load single element, just add **data-not-lazy** attribute
-```html
-<audio controls="controls" data-not-lazy>
-  <source type="audio/mpeg" src="audio.mp3">
-</audio>
 ```
 
 ## 🔧 Options
@@ -74,6 +48,26 @@ lazyLoad: {
     // See IntersectionObserver documentation
   }
 }
+```
+
+#### directiveOnly
+If you don't want to use lazy load on every image/video/audio/iframe, set **directiveOnly** to **true** and use directive like this (with data-src/data-srcset/data-poster)
+```html
+<img data-src="image.png" alt="" title="" v-lazy-load>
+```
+You don't need to add directive (**v-lazy-load**) on source elements
+```html
+<video data-poster="~/assets/images/poster.jpg" v-lazy-load>
+  <source data-src="video.mp4" type="video/mp4"> --> without directive
+</video>
+```
+
+#### data-not-lazy
+If you don't want to lazy load single element, just add **data-not-lazy** attribute
+```html
+<audio controls="controls" data-not-lazy>
+  <source type="audio/mpeg" src="audio.mp3">
+</audio>
 ```
 
 ### Buy me a coffee

@@ -1,13 +1,13 @@
 {
   "name": "nuxt-lazy-load",
-  "version": "3.0.2",
+  "version": "3.0.4",
   "description": "Nuxt 3 Lazy Load",
   "license": "MIT",
   "author": "Dario Ferderber <dario.ferderber@broj42.com>",
   "type": "module",
   "funding": {
-    "type" : "individual",
-    "url" : "https://ko-fi.com/darioferderber"
+    "type": "individual",
+    "url": "https://ko-fi.com/darioferderber"
   },
   "keywords": [
     "nuxt lazy load",
